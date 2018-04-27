@@ -28,41 +28,41 @@ import {
 class SectionOption extends Component{
   render() {
     return (
-      <div id="section-option">content</div>
+      <div id="section-option">
+        <div>
+          {this.props.children}
+        </div>
+        
+      </div>
     )
   }
 }
 
 class NavBarSection extends Component {
-  constructor(props) {
-    console.log("SKDJFLDJFKD")
-    super(props);
-    // this.state = {
-    //   sectionOptionStructure: sectionOptionStructure,
-    // }
-  }
-  // renderSectionOption(sectionOptionName) {
-  //   return (
-  //     <SectionOption/>
-  //   );
+  // constructor(props) {
+  //   console.log("SKDJFLDJFKD")
+  //   super(props);
+
   // }
 
   render() {
-    console.log("hasdflk")
-    const options = this.props.options.map((optionName, optionIndex) => {
-      return (
-        <SectionOption key={optionIndex}>{optionName}</SectionOption>
-      );
-    })
+    // console.log("hasdflk")
+    // const options = this.props.options.map((optionName, optionIndex) => {
+    //   return (
+    //     <SectionOption key={optionIndex}>{optionName}</SectionOption>
+    //   );
+    // })
 
     return(
       <div id="navbar-section">
-        {options.map((optionComponent, optionIndex) => {
-          {console.log(optionComponent)}
+        <div>
+          {this.props.children}
+        </div>
+        {this.props.options.map((optionName, optionIndex) => {
           return(
-            <div id="navbar-section">
-              {optionComponent.props.children}
-            </div>
+            <SectionOption key={optionIndex}>
+              {optionName}
+            </SectionOption>
           )
         })
 
@@ -81,20 +81,10 @@ const SECTION_OPTIONS_STRUCTURE = {
 };
 
 class NavBar extends Component {
-
   render() {
-    // const sections = NAVBAR_SECTION_STRUCTURE.map((sectionName, sectionIndex) => {
-    //   let sectionOptions = SECTION_OPTIONS_STRUCTURE[sectionName]
-    //   // console.log(sectionOptions);
-    //   return (
-    //     <div id='section-name'>{sectionName}</div>
-    //   );
-    // })
-
     return (
       <div id='navbar'>
         {NAVBAR_SECTION_STRUCTURE.map((sectionName, sectionIndex) => {
-          // {console.log(sectionComponent.props.children)}
           return <NavBarSection key={sectionIndex} options={SECTION_OPTIONS_STRUCTURE[sectionName]}>{sectionName}</NavBarSection>
           }
         )}
