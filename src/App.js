@@ -27,47 +27,53 @@ import {
 
 class SectionOption extends Component{
   render() {
-    return
-      <div>Dataset Selection
-        
-      </div>
+    return (
+      <div id="section-option">content</div>
+    )
   }
 }
 
 class NavBarSection extends Component {
   constructor(props) {
+    console.log("SKDJFLDJFKD")
     super(props);
-    this.state = {
-      sectionOptionStructure: sectionOptionStructure,
-    }
+    // this.state = {
+    //   sectionOptionStructure: sectionOptionStructure,
+    // }
   }
-  renderSectionOption(sectionOptionName) {
-    return (
-      <SectionOption/>
-    );
-  }
+  // renderSectionOption(sectionOptionName) {
+  //   return (
+  //     <SectionOption/>
+  //   );
+  // }
 
   render() {
-
-    const options = this.props.sectionNames.map((currSection, sectionIndex) => {
+    console.log("hasdflk")
+    const options = this.props.options.map((optionName, optionIndex) => {
       return (
-        <SectionOption key={sectionIndex}>{currSection}</SectionOption>
+        <SectionOption key={optionIndex}>{optionName}</SectionOption>
       );
     })
 
     return(
-      <div>test</div>
+      <div id="navbar-section">
+        {options.map((optionComponent, optionIndex) => {
+          {console.log(optionComponent)}
+          return(
+            <div id="navbar-section">
+              {optionComponent.props.children}
+            </div>
+          )
+        })
+
+        }
+      </div>
     );
   }
 }
 
-const navBarSectionStructure = ['Dataset Selection', 'Clustering Options', 'Filtering Options', 'Color By'];
-// let sectionOptionStructure
-// for key in navBarSectionStructure {
-//   sectionOptionStructure[key] = 
-// }
-
-const sectionOptionStructure = {
+const NAVBAR_SECTION_STRUCTURE = ['Dataset Selection', 'Clustering Options', 'Filtering Options', 'Color By'];
+const SECTION_OPTIONS_STRUCTURE = {
   'Dataset Selection': ['Type of Student', 'Graduating Semester'], 
   'Clustering Options': ['Course Details', 'Semester Taken'],
   'Filtering Options': ['Filtering Logic', 'Major(s)', 'Minor(s)'],
@@ -75,37 +81,29 @@ const sectionOptionStructure = {
 };
 
 class NavBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log("WKLFDJS;")
-  //   console.log(this.props);
-  // };
-
-
 
   render() {
-    const sections = this.props.navBarSectionStructure.map((currSection, sectionIndex) => {
-      this.state.sectionNames = this.state.sectionNames.concat({currSection});
+    const sections = NAVBAR_SECTION_STRUCTURE.map((sectionName, sectionIndex) => {
+      let sectionOptions = SECTION_OPTIONS_STRUCTURE[sectionName]
+      // console.log(sectionOptions);
       return (
-        <NavBarSection key={sectionIndex}>{currSection}</NavBarSection>
+        <NavBarSection key={sectionIndex} options={sectionOptions}>{sectionName}</NavBarSection>
       );
     })
 
-    return(
-      <div id='navbar'>{sections}</div>
+    return (
+      <div id='navbar'>
+        {sections.map((sectionComponent, sectionIndex) => {
+          // {console.log(sectionComponent.props.children)}
+          return <div key={sectionIndex}>{sectionComponent.props.children}</div>
+          }
+        )}
+      </div>
     )
   }
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navBarSectionStructure: navBarSectionStructure,
-    }
-  }
-
-
 
   render() {
     return (
@@ -118,7 +116,6 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <DropDown id="wtf"></DropDown>
         <NavBar/>
 
       </div>
