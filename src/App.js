@@ -83,19 +83,19 @@ const SECTION_OPTIONS_STRUCTURE = {
 class NavBar extends Component {
 
   render() {
-    const sections = NAVBAR_SECTION_STRUCTURE.map((sectionName, sectionIndex) => {
-      let sectionOptions = SECTION_OPTIONS_STRUCTURE[sectionName]
-      // console.log(sectionOptions);
-      return (
-        <NavBarSection key={sectionIndex} options={sectionOptions}>{sectionName}</NavBarSection>
-      );
-    })
+    // const sections = NAVBAR_SECTION_STRUCTURE.map((sectionName, sectionIndex) => {
+    //   let sectionOptions = SECTION_OPTIONS_STRUCTURE[sectionName]
+    //   // console.log(sectionOptions);
+    //   return (
+    //     <div id='section-name'>{sectionName}</div>
+    //   );
+    // })
 
     return (
       <div id='navbar'>
-        {sections.map((sectionComponent, sectionIndex) => {
+        {NAVBAR_SECTION_STRUCTURE.map((sectionName, sectionIndex) => {
           // {console.log(sectionComponent.props.children)}
-          return <div key={sectionIndex}>{sectionComponent.props.children}</div>
+          return <NavBarSection key={sectionIndex} options={SECTION_OPTIONS_STRUCTURE[sectionName]}>{sectionName}</NavBarSection>
           }
         )}
       </div>
