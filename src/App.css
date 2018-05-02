@@ -26,3 +26,48 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/*Navbar CSS*/
+.navbar {
+  display: flex;
+  /*position: relative;*/
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.navbar-section {
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.section-name {
+  width: 100%;
+}
+
+/*.section-option {
+  flex: 1;
+}
+*/
+/*.navbar-section:first-child {
+  width: 100%;
+}
+
+.navbar-section:not(:first-child) {
+  flex: 1;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
