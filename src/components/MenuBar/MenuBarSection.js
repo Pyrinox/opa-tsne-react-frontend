@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import SectionOption from './SectionOption';
+import PopoverButton from '../Buttons/PopoverButton';
+import MenBarSection from './css/MenuBarSection.css';
 
-class NavBarSection extends Component {
+class MenuBarSection extends Component {
 	// constructor(props) {
 	// 	super(props);
 	// 	this.state = {
@@ -20,9 +22,12 @@ class NavBarSection extends Component {
 	  	// const selectedOption = this.state;
 
 	    return(
-	      	<div className="navbar-section">
+	      	<div className="menu-bar-section">
 		        <div className='section-name'>
 		        	{this.props.children}
+		        </div>
+		        <div className='about-button-container'>
+		        	<PopoverButton id={this.props.id} />
 		        </div>
 		        {this.props.options.map((optionName, optionIndex) => {
 			        return(
@@ -44,4 +49,4 @@ class NavBarSection extends Component {
 	}
 }
 
-export default NavBarSection;
+export default MenuBarSection;

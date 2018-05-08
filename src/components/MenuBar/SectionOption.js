@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import AnimatedMulti from './AnimatedMulti';
-import Button from './Button';
+import AnimatedMulti from '../DropDowns/AnimatedMulti';
+import Button from '../Buttons/Button';
 
 
-class SectionOption extends Component{
+class SectionOption extends Component {
   // constructor(props) {
   //   super(props)
   //   this.state = {
@@ -34,7 +34,7 @@ class SectionOption extends Component{
     const activeButtons = this.state;
     const option = (type) => {
       if (type==='drop-down') {
-        console.log('wot')
+        // console.log('wot')
         return(
           <AnimatedMulti 
           // onChange={this.handleChange}

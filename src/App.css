@@ -27,15 +27,15 @@
   to { transform: rotate(360deg); }
 }
 
-/*Navbar CSS*/
-.navbar {
+/*MenuBar CSS*/
+.menu-bar {
   display: flex;
   /*position: relative;*/
   flex-wrap: nowrap;
   justify-content: space-evenly;
 }
 
-.navbar-section {
+.menu-bar-section {
   display: flex;
   /*flex-direction: column;*/
   flex-wrap: wrap;
