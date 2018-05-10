@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import MenuBarSection from './MenuBarSection';
 import PopoverButton from '../Buttons/PopoverButton';
-
-const MENUBAR_SECTION_STRUCTURE = ['Dataset Selection', 'Clustering Options', 'Filtering Options', 'Color By'];
-const SECTION_OPTIONS_STRUCTURE = {
-  'Dataset Selection': ['Type of Student', 'Graduating Semester'], 
-  'Clustering Options': ['Course Details', 'Semester Taken'],
-  'Filtering Options': ['Filtering Logic', 'Major(s)', 'Minor(s)'],
-  'Color By': ['Same Color', 'Academic Div', 'Ethnicity', 'Num of Majors', 'College', 'Time to Degree'],
-};
+import { MENUBAR_SECTION_STRUCTURE, SECTION_OPTIONS_STRUCTURE } from './constants/constants'
 
 class MenuBar extends Component {
   render() {

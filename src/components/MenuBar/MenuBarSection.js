@@ -27,7 +27,7 @@ class MenuBarSection extends Component {
 		        	{this.props.children}
 		        </div>
 		        <div className='about-button-container'>
-		        	<PopoverButton id={this.props.id} />
+		        	<PopoverButton id={this.props.id} sectionName={this.props.children}/>
 		        </div>
 		        {this.props.options.map((optionName, optionIndex) => {
 			        return(
